@@ -10511,7 +10511,7 @@ func NewCreateTaskFileUrlRequest() (request *CreateTaskFileUrlRequest) {
 	return
 }
 
-func NewNewCreateTaskFileUrlResponse() (response *CreateTaskFileUrlResponse) {
+func NewCreateTaskFileUrlResponse() (response *CreateTaskFileUrlResponse) {
 	response = &CreateTaskFileUrlResponse{
 		BaseResponse: &tchttp.BaseResponse{},
 	}
@@ -10529,7 +10529,39 @@ func (c *Client) CreateTaskFileUrlWithContext(ctx context.Context, request *Crea
 
 	request.SetContext(ctx)
 
-	response = NewNewCreateTaskFileUrlResponse()
+	response = NewCreateTaskFileUrlResponse()
+	err = c.Send(request, response)
+	return
+}
+
+func NewBatchUpdateFirmwareRequest() (request *BatchUpdateFirmwareRequest) {
+	request = &BatchUpdateFirmwareRequest{
+		BaseRequest: &tchttp.BaseRequest{},
+	}
+
+	request.Init().WithApiInfo("iotexplorer", APIVersion, "BatchUpdateFirmware")
+	return
+}
+
+func NewBatchUpdateFirmwareResponse() (response *BatchUpdateFirmwareResponse) {
+	response = &BatchUpdateFirmwareResponse{
+		BaseResponse: &tchttp.BaseResponse{},
+	}
+	return
+}
+
+func (c *Client) BatchUpdateFirmwareWithContext(ctx context.Context, request *BatchUpdateFirmwareRequest) (response *CreateTaskFileUrlResponse, err error) {
+	if request == nil {
+		request = NewBatchUpdateFirmwareRequest()
+	}
+
+	if c.GetCredential() == nil {
+		return nil, errors.New("CreateTaskFileUrl require credential")
+	}
+
+	request.SetContext(ctx)
+
+	response = NewBatchUpdateFirmwareResponse()
 	err = c.Send(request, response)
 	return
 }

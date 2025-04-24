@@ -14706,16 +14706,16 @@ func (r *CreateTaskFileUrlResponse) FromJsonString(s string) error {
 
 type BatchUpdateFirmwareRequest struct {
 	*tchttp.BaseRequest
-	Version         string `json:"Version"`
-	FirmwareVersion string `json:"FirmwareVersion"`
-	ProductID       string `json:"ProductID"`
-	UpgradeMethod   int    `json:"UpgradeMethod"`
-	FileName        string `json:"FileName"`
-	FileMd5         string `json:"FileMd5"`
-	FileSize        int    `json:"FileSize"`
-	TimeoutInterval int    `json:"TimeoutInterval"`
-	Type            int    `json:"Type"`
-	DelayTime       int    `json:"DelayTime"`
+	Version         string `json:"Version" name:"RequestId"`
+	FirmwareVersion string `json:"FirmwareVersion" name:"FirmwareVersion"`
+	ProductID       string `json:"ProductID" name:"ProductID"`
+	UpgradeMethod   int    `json:"UpgradeMethod" name:"UpgradeMethod"`
+	FileName        string `json:"FileName" name:"FileName"`
+	FileMd5         string `json:"FileMd5" name:"FileMd5"`
+	FileSize        int    `json:"FileSize" name:"FileSize"`
+	TimeoutInterval int    `json:"TimeoutInterval" name:"TimeoutInterval"`
+	Type            int    `json:"Type" name:"Type"`
+	DelayTime       int    `json:"DelayTime" name:"DelayTime"`
 }
 
 func (r *BatchUpdateFirmwareRequest) ToJsonString() string {
